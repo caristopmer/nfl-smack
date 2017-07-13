@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   validates :username, :email, presence: true
   validates :username, :email, uniqueness: true
+  validates :email, format: { with: /.+@\D*\.\D{3}\z/ }
 
   include BCrypt
 
