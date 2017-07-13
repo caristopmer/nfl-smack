@@ -1,4 +1,7 @@
 <h2>Smack Board</h2>
+<% if logged_in? %>
+  <a href="/posts/new">Talk some smack...</a>
+<% end %>
 <ul>
   <% Post.all.each do |post| %>
     <li><%= erb :"posts/_show", locals: { post: post } %></li>

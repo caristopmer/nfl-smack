@@ -3,11 +3,18 @@ get '/posts' do
 end
 
 get '/posts/new' do
-
+  erb :"posts/new"
 end
 
 post '/posts' do
-
+  @post = Post.new(params[:post])
+  @post.author = current_user
+  if @post.save
+    redirect "/posts/#{@post.id}"
+  else
+    @errors = @post.errors.full_messages
+    erb :"posts/new"
+  end
 end
 
 get '/posts/:id' do
@@ -15,6 +22,6 @@ get '/posts/:id' do
   erb :"posts/show"
 end
 
-delete '/posts/:id' do
-
-end
+# delete '/posts/:id' do
+#  "delete post"
+# end
