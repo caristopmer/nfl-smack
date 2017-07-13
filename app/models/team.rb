@@ -1,3 +1,3 @@
 class Team < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many :fans, class_name: "User", foreign_key: :favorite_team_id
 end

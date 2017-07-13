@@ -20,7 +20,6 @@ Team.create(location: "Oakland", name: "Raiders", color_hex: "#C4C8CB")
 Team.create(location: "Los Angeles", name: "Chargers", color_hex: "#85a3c8")
 
 
-
 Team.create(location: "Dallas", name: "Cowboys", color_hex: "#87909B")
 Team.create(location: "New York", name: "Giants", color_hex: "#192F6B")
 Team.create(location: "Philadelphia", name: "Eagles", color_hex: "#003B48")
@@ -54,7 +53,6 @@ Post.create(title: "Skol Vikes!", body: "Skol bros rise! The pack sucks!", autho
 Post.create(title: "We are Horses.", body: "Our mascot is a horse. Yeah.", author_id: 3)
 Post.create(title: "Packers r da best you know.", body: "blah blah... bullshit", author_id: 4)
 Post.create(title: "Flippers up for the Dolphins!", body: "** Incomprehensible dolphin squeels... **", author_id: 5)
-
 
 # Reply Seeds
 Reply.create(body: "You're an idiot!", author_id: 3, post_id: 3)
