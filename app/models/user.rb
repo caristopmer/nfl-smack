@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   has_many :replies, foreign_key: :author_id
   belongs_to :favorite_team, class_name: "Team"
 
+  validates :username, :email, presence: true
+  validates :username, :email, uniqueness: true
+
   include BCrypt
 
   def password
