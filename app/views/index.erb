@@ -1,4 +1,8 @@
-home page
+<% if logged_in? %>
+  <p>Welcome <%= current_user.username %>, let's talk some smack!</p>
+<% else %>
+  <p>Welcome to NFL Smack! Log in or register to talk some smack!</p>
+<% end %>
 <!--
 <a class="twitter-timeline" href="https://twitter.com/Vikings">Tweets by Vikings</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
  -->
