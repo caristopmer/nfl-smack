@@ -11,6 +11,9 @@ post '/users' do
     redirect "/"
   else
     @errors = @user.errors.full_messages
+    if params[:user]["password"] != params[:confirm_password]
+      @errors << "Password and confirm password must match."
+    end
     erb :"users/new"
   end
 end
