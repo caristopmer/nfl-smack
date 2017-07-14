@@ -1,9 +1,18 @@
 <h2>Smack Board</h2>
+<div class="posts-container">
+  <ul class="posts-list">
+    <% Post.all.each do |post| %>
+      <li><%= erb :"posts/_show", locals: { post: post } %></li>
+    <% end %>
+  </ul>
+</div>
 <% if logged_in? %>
-  <a href="/posts/new">Talk some smack...</a>
+  <h3>Talk some smack...</h3>
+  <form id="new-post-form" class="post-form" style="background-color: <%= current_user.favorite_team.color_hex %>;" action="/posts" method="post">
+    <label class="white-text" for="post[title]">Title:</label><br>
+    <input class="long-input" type="text" name="post[title]"><br><br>
+    <label class="white-text" for="post[body]">Content:</label><br>
+    <textarea name="post[body]" rows="5" cols="60" placeholder="What's on your mind?"></textarea><br><br>
+    <input type="submit" value="Post!">
+  </form>
 <% end %>
-<ul>
-  <% Post.all.each do |post| %>
-    <li><%= erb :"posts/_show", locals: { post: post } %></li>
-  <% end %>
-</ul>

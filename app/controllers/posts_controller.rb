@@ -10,10 +10,19 @@ post '/posts' do
   @post = Post.new(params[:post])
   @post.author = current_user
   if @post.save
-    redirect "/posts/#{@post.id}"
+    if request.xhr?
+      erb :"posts/_show", layout: false, locals: {post: @post}
+    else
+      redirect "/posts/#{@post.id}"
+    end
   else
-    @errors = @post.errors.full_messages
-    erb :"posts/new"
+    if request.xhr?
+      status 422
+      "Post content invalid."
+    else
+      @errors = @post.errors.full_messages
+      erb :"posts/new"
+    end
   end
 end
 
