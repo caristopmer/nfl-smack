@@ -1,14 +1,14 @@
-<li><a href="/">Home</a></li>
+<li class="nav-bars"><a href="/">Home</a></li>
 <% if logged_in? %>
-<li><a href="/users/<%= current_user.id %>">Profile</a></li>
-<li>
+<li class="nav-bars"><a href="/users/<%= current_user.id %>">Profile</a></li>
+<li class="nav-bars">
   <form action="/sessions" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Log Out">
+    <input class="form-button" type="submit" value="Log Out">
   </form>
 </li>
 <% else %>
-  <li><a href="/users/new">Register</a></li>
-  <li><a href="/sessions/new">Log In</a></li>
+  <li class="nav-bars"><a href="/users/new">Register</a></li>
+  <li class="nav-bars"><a href="/sessions/new">Log In</a></li>
 <% end %>
 <li><a href="/posts">Smack Board</a></li>
