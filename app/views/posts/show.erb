@@ -1,14 +1,27 @@
 <h2><%= @post.title %></h2>
-<p><%= @post.body %></p>
-<ul class="post-info-list">
-  <li>by: <%= @post.author.username %>, <span class="team-badge"><%= @post.author.favorite_team.name %></span></li>
-  <li>posted: <%= @post.created_at %></li>
-</ul>
-<div class="replies-container">
-  <ul class="replies-list">
-    <% @post.replies.each do |reply| %>
-      <li class="reply"><%= erb :"replies/_show", locals: { reply: reply } %></li>
-    <% end %>
+<div class="post-snippet">
+  <p><%= @post.body %></p>
+  <ul class="post-info-list">
+    <li>by: <%= @post.author.username %>, <span class="team-badge"><%= @post.author.favorite_team.name %></span></li>
+    <li>posted: <%= @post.created_at %></li>
   </ul>
 </div>
-<a href="/posts/<%= @post.id %>/replies/new">Reply to Post!</a>
+<br><br>
+<h3>Replies:</h3>
+<div class="replies-container">
+  <% if @post.replies.length > 0 %>
+    <ul class="replies-list">
+      <% @post.replies.each do |reply| %>
+        <li class="reply"><%= erb :"replies/_show", locals: { reply: reply } %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Post a reply below!</p>
+  <% end %>
+</div>
+<h2>Submit Reply</h2>
+<form id="new-reply-form" class="post-form" style="background-color: <%= current_user.favorite_team.color_hex %>;" action="/posts/<%= @post.id %>/replies" method="post">
+  <label class="white-text" for="reply[body]">Reply:</label><br><br>
+  <textarea name="reply[body]" rows="5" cols="80" placeholder="Are you gonna take that?..."></textarea><br><br>
+  <input type="submit" value="Submit">
+</form>

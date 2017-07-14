@@ -1,0 +1,19 @@
+<h2><%= @user.username %>'s Profile</h2>
+
+<h3>Post History:</h3>
+<div class="posts-container">
+  <ul class="posts-list">
+    <% @user.posts.each do |post| %>
+      <li><%= erb :"posts/_show", locals: { post: post } %></li>
+    <% end %>
+  </ul>
+</div>
+
+<h3>Comment History:</h3>
+<div class="replies-container">
+  <ul class="replies-list">
+    <% @user.replies.each do |reply| %>
+      <li class="reply"><%= erb :"replies/_show", locals: { reply: reply } %></li>
+    <% end %>
+  </ul>
+</div>
