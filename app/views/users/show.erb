@@ -13,7 +13,7 @@
 <div class="replies-container">
   <ul class="replies-list">
     <% @user.replies.each do |reply| %>
-      <li class="reply"><%= erb :"replies/_show", locals: { reply: reply } %></li>
+      <li class="reply"><a href="/posts/<%= reply.post.id %>"><%= erb :"replies/_show", locals: { reply: reply } %></a></li>
     <% end %>
   </ul>
 </div>

@@ -32,7 +32,7 @@ body {
 #team-feed-container {
   max-width: 1000px;
   width: 70%;
-  max-height: 800px;
+  /*max-height: 800px;*/
   overflow: scroll;
   margin: auto;
   border-radius: 10px;
