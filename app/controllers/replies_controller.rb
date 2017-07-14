@@ -9,9 +9,18 @@ post '/posts/:id/replies' do
   @reply.post = Post.find(params[:id])
   @reply.author = current_user
   if @reply.save
-    redirect "/posts/#{params[:id]}"
+    if request.xhr?
+      erb :"replies/_show", layout: false, locals: {reply: @reply}
+    else
+      redirect "/posts/#{params[:id]}"
+    end
   else
-    @errors = @reply.errors.full_messages
-    erb :"replies/new"
+    if request.xhr?
+      status 422
+      "Reply must have content!"
+    else
+      @errors = @reply.errors.full_messages
+      erb :"replies/new"
+    end
   end
 end
