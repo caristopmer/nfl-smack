@@ -1,7 +1,23 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $.ajax({
+    url: 'api/url',
+    method: 'POST',
+  })
+  
+    .done(function(data, textStatus, jqXHR) {
+      console.log('done');
+    })
+  
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      if (jqXHR.responseJSON) {
+        console.log('failed with json data');
+      }
+      else {
+        console.log('failed with unknown data'); 
+      }
+    })
+  
+    .always(function(dataOrjqXHR, textStatus, jqXHRorErrorThrown) {
+      console.log('always');
+    });
 });
