@@ -1,10 +1,3 @@
-get '/users/personalize' do
-  if request.xhr?
-    current_user.favorite_team.color_hex.to_json
-  else
-    redirect '/'
-  end
-end
 
 get '/users/new' do
   erb :"users/new"

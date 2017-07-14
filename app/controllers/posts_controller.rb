@@ -7,6 +7,7 @@ get '/posts/new' do
 end
 
 post '/posts' do
+  redirect '/' if !logged_in?
   @post = Post.new(params[:post])
   @post.author = current_user
   if @post.save

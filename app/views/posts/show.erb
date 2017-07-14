@@ -2,7 +2,7 @@
 <div class="post-snippet">
   <p><%= @post.body %></p>
   <ul class="post-info-list">
-    <li>by: <%= @post.author.username %>, <span class="team-badge"><%= @post.author.favorite_team.name %></span></li>
+    <li>by: <a href="/users/<%= @post.author.id %>"><%= @post.author.username %></a>, <span class="team-badge"><%= @post.author.favorite_team.name %></span></li>
     <li>posted: <%= @post.created_at %></li>
   </ul>
 </div>
