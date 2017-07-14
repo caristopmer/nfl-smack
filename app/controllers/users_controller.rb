@@ -1,6 +1,6 @@
-get '/users' do
+get '/users/personalize' do
   if request.xhr?
-
+    current_user.favorite_team.color_hex.to_json
   else
     redirect '/'
   end
