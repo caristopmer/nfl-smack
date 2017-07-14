@@ -63,3 +63,8 @@ a:visited {
   border-right: 1px solid white;
   padding-right: 5px;
 }
+
+.team-badge {
+  color: silver;
+  font-style: italic;
+}
