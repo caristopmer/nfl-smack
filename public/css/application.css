@@ -10,3 +10,7 @@ body {
   display: inline;
 }
 
+#team-feed-container {
+  max-width: 800px;
+  width: 60%;
+}
