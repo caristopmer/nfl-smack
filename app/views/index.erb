@@ -4,16 +4,16 @@
     <input type="submit" value="Hit the Smack Board!"><br>
   </form>
   <h2><%= current_user.favorite_team.full_name %>' Latest:</h2>
-  <div id="team-feed-container">
+  <div id="team-feed-container" style="border: 8px solid <%= current_user.favorite_team.color_hex %>;">
     <a class="twitter-timeline" href="https://twitter.com/<%= current_user.favorite_team.twitter_handle %>">Tweets by Vikings</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
 <% else %>
   <p>Welcome to NFL Smack! Log in or register to talk some smack!</p>
-  <div>
-    <ul>
-      <li><a href="/posts">Check out the Smack Board</a></li>
-      <li><a href="/users/new">Sign up and talk some smack!</a></li>
-      <li><a href="/sessions/new">Log In!</a></li>
+  <div class="logged-out-links-container">
+    <ul class="logged-out-home-links">
+      <li><a href="/posts">Check out the Smack Board</a></li><br>
+      <li><a href="/users/new">Sign up and talk some smack!</a></li><br>
+      <li><a href="/sessions/new">Log In!</a></li><br>
     </ul>
   </div>
 <% end %>

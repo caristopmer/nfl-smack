@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="/css/application.css">
   <% if logged_in? %>
     <style>
-      body { background-color: <%= current_user.favorite_team.color_hex %>; }
+      body { background-color: <%= current_user.favorite_team.color_hex %>;
+      }
     </style>
   <% end %>
 
