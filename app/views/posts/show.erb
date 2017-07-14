@@ -1,7 +1,7 @@
 <h2><%= @post.title %></h2>
 <p><%= @post.body %></p>
 <ul class="post-info-list">
-  <li>by: <%= @post.author.username %></li>
+  <li>by: <%= @post.author.username %>, <span class="team-badge"><%= @post.author.favorite_team.name %></span></li>
   <li>posted: <%= @post.created_at %></li>
 </ul>
 <div class="replies-container">

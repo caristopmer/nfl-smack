@@ -13,4 +13,6 @@ body {
 #team-feed-container {
   max-width: 800px;
   width: 60%;
+  max-height: 600px;
+  overflow: scroll;
 }
