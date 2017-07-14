@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <p>Welcome <%= current_user.username %>, let's talk some smack!</p>
   <form action="/posts">
-    <input type="submit" value="Hit the Smack Board!"><br>
+    <input style="background-color: <%= current_user.favorite_team.color_hex %>;" id="smack-board-button" type="submit" value="Hit the Smack Board!"><br>
   </form>
   <h2><%= current_user.favorite_team.full_name %>' Latest:</h2>
   <div id="team-feed-container" style="border: 8px solid <%= current_user.favorite_team.color_hex %>;">
