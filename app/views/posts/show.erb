@@ -12,7 +12,7 @@
   <% if @post.replies.length > 0 %>
     <ul class="replies-list">
       <% @post.replies.each do |reply| %>
-        <li class="reply"><%= erb :"replies/_show", locals: { reply: reply } %></li>
+        <%= erb :"replies/_show", locals: { reply: reply } %>
       <% end %>
     </ul>
   <% else %>

@@ -1,5 +1,7 @@
-<p><%= reply.body %></p>
-<ul class="post-info-list">
-  <li>by: <a href="/users/<%= reply.author.id %>"><%= reply.author.username %></a>, <span class="team-badge"><%= reply.author.favorite_team.name %></span></li>
-  <li>posted: <%= reply.created_at %></li>
-</ul>
+<li class="reply">
+  <p><%= reply.body %></p>
+  <ul class="post-info-list">
+    <li>by: <a href="/users/<%= reply.author.id %>"><%= reply.author.username %></a>, <span class="team-badge"><%= reply.author.favorite_team.name %></span></li>
+    <li>posted: <%= reply.created_at %></li>
+  </ul>
+</li>
