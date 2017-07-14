@@ -1,8 +1,18 @@
 <% if logged_in? %>
   <p>Welcome <%= current_user.username %>, let's talk some smack!</p>
+  <form action="/posts">
+    <input type="submit" value="Hit the Smack Board!">
+  </form>
+  <div id="team-feed-container">
+    <a class="twitter-timeline" href="https://twitter.com/Vikings">Tweets by Vikings</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
 <% else %>
   <p>Welcome to NFL Smack! Log in or register to talk some smack!</p>
+  <div>
+    <ul>
+      <li><a href="/posts">Check out the Smack Board</a></li>
+      <li><a href="/users/new">Sign up and talk some smack!</a></li>
+      <li><a href="/sessions/new">Log In!</a></li>
+    </ul>
+  </div>
 <% end %>
-<!--
-<a class="twitter-timeline" href="https://twitter.com/Vikings">Tweets by Vikings</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
- -->
