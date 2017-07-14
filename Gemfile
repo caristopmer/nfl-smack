@@ -28,6 +28,6 @@ group :test, :development do
   gem 'faker'
 end
 
-group :development do
-  gem 'pry-byebug'
-end
+# group :development do
+#   gem 'pry-byebug'
+# end
