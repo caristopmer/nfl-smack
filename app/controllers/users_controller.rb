@@ -5,7 +5,11 @@ end
 
 post '/users' do
   @user = User.new(params[:user])
-  @user.favorite_team = Team.find_by(name: "#{params[:favorite_team]}") if params[:favorite_team] != "none"
+  if params[:favorite_team] != "none"
+    @user.favorite_team = Team.find_by(name: "#{params[:favorite_team]}")
+  else
+    # @user
+  end
   if @user.valid? && params[:user]["password"] == params[:confirm_password]
     @user.save
     session[:user_id] = @user.id
