@@ -3,6 +3,10 @@ class Team < ActiveRecord::Base
 
   validates :location, :name, presence: true
 
+  def full_name
+    self.location + " " + self.name
+  end
+
   def twitter_handle
     case self.name
     when "Bills"

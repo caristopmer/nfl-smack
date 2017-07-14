@@ -1,8 +1,9 @@
 <% if logged_in? %>
   <p>Welcome <%= current_user.username %>, let's talk some smack!</p>
   <form action="/posts">
-    <input type="submit" value="Hit the Smack Board!">
+    <input type="submit" value="Hit the Smack Board!"><br>
   </form>
+  <h2><%= current_user.favorite_team.full_name %>' Latest:</h2>
   <div id="team-feed-container">
     <a class="twitter-timeline" href="https://twitter.com/<%= current_user.favorite_team.twitter_handle %>">Tweets by Vikings</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
